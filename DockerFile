@@ -1,0 +1,20 @@
+# 使用 Node 的版本
+FROM node:12.16.3
+
+# Node 環境設定為 production
+ENV NODE_ENV production
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# 複製 package 設定
+COPY ["package.json", "yarn.lock", "./"]
+
+# Install app dependencies
+RUN yarn install
+
+# Bundle app source
+RUN yarn build
+EXPOSE 3000
+CMD ["npm", "start"]

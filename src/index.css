@@ -1,0 +1,7 @@
+
+html, body, :global(#root) {
+  height: 100%;
+}
+html {
+  background-color: rgba(182, 238, 253, 0.432);
+}
